@@ -8,25 +8,17 @@ import { calculateInvestmentResults } from '../util/investment';
 // - expectedReturn: The expected (annual) rate of return
 // - duration: The investment duration (time frame)
 
-const initialInput = {
-  initialInvestment: 1000,
-  annualInvestment: 10000,
-  expectedReturn: 5,
-  duration: 3,
-};
-
 //! TESTING PHASE
-export default function () {
-  const [userInput, setUserInput] = useState(initialInput);
+export default function ({ setValue, inputState }) {
   const inputHandler = function (e) {
-    setUserInput(prevInput => {
+    setValue(prevInput => {
       const userInput = e.target.value;
       const targetInput = e.target.name;
       const newInputValue = { ...prevInput };
       newInputValue[targetInput] = Number(userInput);
       const calcResult = calculateInvestmentResults(newInputValue);
-      console.log(newInputValue);
-      console.log(calcResult);
+      // console.log(newInputValue);
+      // console.log(calcResult);
       return newInputValue;
     });
   };
@@ -39,7 +31,7 @@ export default function () {
           <input
             name="initialInvestment"
             type="number"
-            value={userInput.initialInvestment}
+            value={inputState.initialInvestment}
             onChange={inputHandler}
             required
           />
@@ -49,7 +41,7 @@ export default function () {
           <input
             name="annualInvestment"
             type="number"
-            value={userInput.annualInvestment}
+            value={inputState.annualInvestment}
             onChange={inputHandler}
             required
           />
@@ -61,7 +53,7 @@ export default function () {
           <input
             name="expectedReturn"
             type="number"
-            value={userInput.expectedReturn}
+            value={inputState.expectedReturn}
             onChange={inputHandler}
             required
           />
@@ -71,7 +63,7 @@ export default function () {
           <input
             name="duration"
             type="number"
-            value={userInput.duration}
+            value={inputState.duration}
             onChange={inputHandler}
             required
           />
