@@ -4,10 +4,10 @@ import UserInput from './components/UserInput';
 import Result from './components/Result';
 
 const initialInput = {
-  initialInvestment: 1000,
-  annualInvestment: 10000,
+  initialInvestment: 100,
+  annualInvestment: 1000,
   expectedReturn: 5,
-  duration: 3,
+  duration: 5,
 };
 
 export default function App() {

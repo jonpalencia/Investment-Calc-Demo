@@ -2,16 +2,16 @@ import { calculateInvestmentResults, formatter } from '../util/investment';
 
 export default function Result({ resultInput }) {
   const resultCalculation = calculateInvestmentResults(resultInput);
-  const { duration, initialInvestment } = resultInput;
-  const resultArr = resultCalculation.map(res => {
+  console.log(resultCalculation);
+  const resultArr = resultCalculation.map((res, i) => {
     const { year, interest, valueEndOfYear, annualInvestment } = res;
     return (
-      <tr>
+      <tr key={i * 777}>
         <td>{year}</td>
-        <td>{initialInvestment}</td>
-        <td>{formatter.format(valueEndOfYear)}</td>
-        <td>{formatter.format(interest)}</td>
         <td>{formatter.format(annualInvestment)}</td>
+        <td>{formatter.format(interest)}</td>
+        <td>{formatter.format(valueEndOfYear)}</td>
+        <td>{formatter.format(resultInput.initialInvestment)}</td>
       </tr>
     );
   });
