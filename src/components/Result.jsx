@@ -11,7 +11,7 @@ export default function Result({ resultInput }) {
         <td>{formatter.format(annualInvestment)}</td>
         <td>{formatter.format(interest)}</td>
         <td>{formatter.format(valueEndOfYear)}</td>
-        <td>{formatter.format(resultInput.initialInvestment)}</td>
+        <td>{formatter.format(resultInput.annualInvestment * year)}</td>
       </tr>
     );
   });
