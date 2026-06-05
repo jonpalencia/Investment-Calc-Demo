@@ -15,7 +15,7 @@ export default function ({ setValue, inputState }) {
       const userInput = e.target.value;
       const targetInput = e.target.name;
       const newInputValue = { ...prevInput };
-      newInputValue[targetInput] = +userInput;
+      newInputValue[targetInput] = Number(userInput);
       const calcResult = calculateInvestmentResults(newInputValue);
       // console.log(newInputValue);
       // console.log(calcResult);
