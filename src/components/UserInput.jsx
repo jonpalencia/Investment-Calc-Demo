@@ -1,24 +1,12 @@
 import { useState } from 'react';
-import { calculateInvestmentResults } from '../util/investment';
 
-// This function expects a JS object as an argument
-// The object should contain the following properties
-// - initialInvestment: The initial investment amount
-// - annualInvestment: The amount invested every year
-// - expectedReturn: The expected (annual) rate of return
-// - duration: The investment duration (time frame)
-
-//! TESTING PHASE
-export default function ({ setValue, inputState }) {
+export default function UserInput({ inputState, setValue }) {
   const inputHandler = function (e) {
     setValue(prevInput => {
-      const userInput = e.target.value;
+      const inputValue = e.target.value;
       const targetInput = e.target.name;
       const newInputValue = { ...prevInput };
-      newInputValue[targetInput] = Number(userInput);
-      const calcResult = calculateInvestmentResults(newInputValue);
-      // console.log(newInputValue);
-      // console.log(calcResult);
+      newInputValue[targetInput] = Number(inputValue);
       return newInputValue;
     });
   };
