@@ -6,19 +6,18 @@ import { INITIAL_INPUT } from './util/config';
 
 export default function App() {
   const [userInput, setUserInput] = useState(INITIAL_INPUT);
-  const resultOutput = () => {
-    return userInput.duration < 1 ? (
-      <p className="center">Please provide the year duration of 1 or more</p>
-    ) : (
+  const isValid =
+    userInput.duration >= 1 ? (
       <Result resultInput={userInput} />
+    ) : (
+      <p className="center">Please enter duration (year) greater than zero.</p>
     );
-  };
 
   return (
     <>
       <Header />
       <UserInput setValue={setUserInput} inputState={userInput} />
-      {resultOutput()}
+      {isValid}
     </>
   );
 }

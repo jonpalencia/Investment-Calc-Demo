@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function UserInput({ inputState, setValue }) {
   const inputHandler = function (e) {
     if (Number(e.target.value) < 0) return;
