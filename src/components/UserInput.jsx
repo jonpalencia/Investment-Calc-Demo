@@ -2,11 +2,12 @@ import { useState } from 'react';
 
 export default function UserInput({ inputState, setValue }) {
   const inputHandler = function (e) {
+    if (Number(e.target.value) < 0) return;
     setValue(prevInput => {
-      const inputValue = e.target.value;
+      const inputValue = Number(e.target.value);
       const targetInput = e.target.name;
       const newInputValue = { ...prevInput };
-      newInputValue[targetInput] = Number(inputValue);
+      newInputValue[targetInput] = inputValue;
       return newInputValue;
     });
   };
